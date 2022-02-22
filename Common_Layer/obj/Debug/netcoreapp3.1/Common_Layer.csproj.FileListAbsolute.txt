@@ -1,0 +1,10 @@
+C:\Users\lenovo\source\.net-core\BookStore\Common_Layer\bin\Debug\netcoreapp3.1\Common_Layer.deps.json
+C:\Users\lenovo\source\.net-core\BookStore\Common_Layer\bin\Debug\netcoreapp3.1\Common_Layer.dll
+C:\Users\lenovo\source\.net-core\BookStore\Common_Layer\bin\Debug\netcoreapp3.1\Common_Layer.pdb
+C:\Users\lenovo\source\.net-core\BookStore\Common_Layer\obj\Debug\netcoreapp3.1\Common_Layer.csproj.AssemblyReference.cache
+C:\Users\lenovo\source\.net-core\BookStore\Common_Layer\obj\Debug\netcoreapp3.1\Common_Layer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lenovo\source\.net-core\BookStore\Common_Layer\obj\Debug\netcoreapp3.1\Common_Layer.AssemblyInfoInputs.cache
+C:\Users\lenovo\source\.net-core\BookStore\Common_Layer\obj\Debug\netcoreapp3.1\Common_Layer.AssemblyInfo.cs
+C:\Users\lenovo\source\.net-core\BookStore\Common_Layer\obj\Debug\netcoreapp3.1\Common_Layer.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\source\.net-core\BookStore\Common_Layer\obj\Debug\netcoreapp3.1\Common_Layer.dll
+C:\Users\lenovo\source\.net-core\BookStore\Common_Layer\obj\Debug\netcoreapp3.1\Common_Layer.pdb
