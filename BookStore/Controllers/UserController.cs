@@ -1,5 +1,6 @@
 ﻿using Business_Layer.Interfaces;
 using Common_Layer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -48,8 +49,8 @@ namespace BookStore.Controllers
                 var result = userBL.Login(login);
                 if (result != null)
                 {
-
-                    return this.Ok(new { Success = true, message = "login successful" });
+                    var token = userBL.GenerateJWTToken(login.EmailId);
+                    return this.Ok(new { Success = true, message = "login successful" ,token=token});
                 }
                 else
                 {
@@ -62,6 +63,45 @@ namespace BookStore.Controllers
                 throw;
             }
         }
+        [HttpPost("ForgetPassword")]
+        public IActionResult ForgetPassword(string email)
+        {
+            try
+            {
+                string Forget = userBL.ForgetPassword(email);
+                if (Forget != null)
+                {
 
+                    return this.Ok(new { Success = true, message = "Link for reset password has been sent on your email" });
+                }
+                else
+                {
+                    return this.BadRequest(new { Success = false, message = "Email does not exist in our system" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return this.NotFound(new { Status = false, ex.Message });
+                //throw;
+            }
+        }
+
+        [Authorize]
+
+        [HttpPost("ResetPassword")]
+        public IActionResult ResetPassword(string password, string confirmPassword)
+        {
+            try
+            {
+                var email = User.Claims.First(e => e.Type == "Email").Value;
+                //var email1 = User.FindFirst(ClaimTypes.Email).Value.ToString();
+                userBL.ResetPassword(email, password, confirmPassword);
+                return Ok(new { message = "Password reset succussfully" });
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
+}

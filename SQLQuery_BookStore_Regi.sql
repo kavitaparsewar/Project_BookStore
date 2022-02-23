@@ -2,7 +2,7 @@ create DataBase BookStore
 
 Use BookStore
 
---User Table Name is User_Registration
+--From here User Table Stored Procedure
 
 create table User_Registration(
 UserId int primary key identity,
@@ -77,4 +77,102 @@ CREATE PROCEDURE spLogin
 AS
 BEGIN
 	SELECT * FROM User_Registration WHERE EmailId = @EmailId and Password=@Password
+END
+
+
+CREATE PROCEDURE spResetPassword
+(
+   @EmailId VARCHAR(50),
+   @Password VARCHAR(20)
+)
+AS
+BEGIN
+    UPDATE  User_Registration SET Password = @Password
+    WHERE EmailId =@EmailId
+END
+
+
+--From here Books Stored Procedure.
+
+Use BookStore
+
+Create Table Books
+(
+	BookId int IDENTITY(1,1) NOT NULL,
+	BookName varchar(50) NULL,
+	AuthorName varchar(50) NULL,
+	TotalRating float NULL,
+	RatedCount int NULL,
+	DiscountPrice float NULL,
+	OriginalPrice float NULL,	
+	Description varchar(250) NULL,
+	BookImage varchar(100) NULL,
+	Quantity int NULL		
+)
+
+
+SELECT * FROM Books;
+
+
+
+CREATE PROCEDURE spAddBook    
+(   
+	@BookName VARCHAR(50),
+	@AuthorName VARCHAR(50),
+	@TotalRating float,
+	@RatedCount int,
+	@DiscountPrice float,
+	@OriginalPrice float,
+	@Description VARCHAR(250),
+	@BookImage VARCHAR(100),
+	@Quantity int,	
+	@BookId int out
+)   
+AS
+BEGIN	
+	SET NOCOUNT ON;    
+	IF NOT EXISTS 
+    (
+      SELECT *
+      FROM Books
+      WHERE  BookName= @BookName or AuthorName = @AuthorName
+    )
+	INSERT INTO Books(BookName,AuthorName,Description,BookImage,Quantity,OriginalPrice,DiscountPrice,TotalRating ,RatedCount)   
+    Values (@BookName,@AuthorName,@Description,@BookImage,@Quantity,@OriginalPrice,@DiscountPrice,@TotalRating ,@RatedCount)   
+	SET @BookId = SCOPE_IDENTITY()
+	RETURN @BookId
+END
+
+
+
+CREATE PROCEDURE spDeleteBook    
+(   
+	@BookId int
+)   
+AS
+BEGIN
+    DELETE FROM Books WHERE BookId=@BookId;
+END
+
+
+
+CREATE PROCEDURE spUpdateBook    
+(   
+    @BookId int ,
+    @BookName VARCHAR(50),
+	@AuthorName VARCHAR(50),
+	@TotalRating float,
+	@RatedCount int,
+	@DiscountPrice float,
+	@OriginalPrice float,
+	@Description VARCHAR(250),
+	@BookImage VARCHAR(100),
+	@Quantity int	
+	
+)   
+AS
+BEGIN
+	UPDATE Books SET BookName=@BookName,AuthorName=@AuthorName,Description=@Description,BookImage=@BookImage,Quantity=@Quantity,
+	OriginalPrice=@OriginalPrice,DiscountPrice=@DiscountPrice,TotalRating=@TotalRating,RatedCount=@RatedCount
+	WHERE BookId = @BookId
 END

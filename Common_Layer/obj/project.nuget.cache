@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "tyVMxKx9MW2LYR9l63Rq6pZzetR4pdmU/skAfX+wxwfsY/ovqMwuTS9hXpn0+uIBIwIzfHWJnx1vdveePXJ0/w==",
+  "dgSpecHash": "rMMeuEK+PuvMzwAUZ4W33ECnINQXzNHnosZhav0YoypTk6OKtHJU2+ewkHIVsNyZVC8rF2Kcc0lnyGNG+oJmbQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\lenovo\\source\\.net-core\\BookStore\\Common_Layer\\Common_Layer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\lenovo\\.nuget\\packages\\experimental.system.messaging\\1.1.0\\experimental.system.messaging.1.1.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.16.0\\microsoft.identitymodel.jsonwebtokens.6.16.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.identitymodel.logging\\6.16.0\\microsoft.identitymodel.logging.6.16.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.16.0\\microsoft.identitymodel.tokens.6.16.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.16.0\\system.identitymodel.tokens.jwt.6.16.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
