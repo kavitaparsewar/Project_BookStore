@@ -39,8 +39,7 @@ namespace Repository_Layer.Services
                 var Reader = command.ExecuteReader();        
                 
                 if (Reader.Read())
-                {
-                   
+                {                
                     return user;
                 }
                 return null;
